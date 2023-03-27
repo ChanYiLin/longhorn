@@ -21,6 +21,11 @@ global:
         taintToleration: cattle.io/os=linux:NoSchedule
         systemManagedComponentsNodeSelector: kubernetes.io/os:linux
 
+networkPolicies:
+  enabled: true
+  # Available types: k3s, rke2, rke1
+  type: "k3s"
+
 image:
   longhorn:
     engine:
@@ -282,7 +287,7 @@ longhornRecoveryBackend:
 
 ingress:
   ## Set to true to enable ingress record generation
-  enabled: false
+  enabled: true
 
   ## Add ingressClassName to the Ingress
   ## Can replace the kubernetes.io/ingress.class annotation on v1.18+
